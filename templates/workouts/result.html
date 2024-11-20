@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<body class="login-page">
+    <div class="login-container">
+<h1>Nutrition plan</h1>
+<p>Proteins: {{ result.protein }} г</p>
+<p>fats: {{ result.fat }} г</p>
+<p>Carbohydrates: {{ result.carbs }} г</p>
+<a href="{% url 'nutrition_calculator' %}">Back to the calculation</a>
+    </div>
+</body>
+{% endblock %}

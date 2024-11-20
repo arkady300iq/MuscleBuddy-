@@ -8,8 +8,10 @@ def register(request):
 
         if custom_user_form.is_valid():
             custom_user = custom_user_form.save()
+            custom_user.save()
+
             login(request, custom_user)
-            return redirect('login')  
+            return redirect('main_page')  
         
     else:
         custom_user_form = forms.CustomUserForm() 
