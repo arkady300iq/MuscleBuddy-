@@ -7,7 +7,7 @@ class PreferencesForm(forms.ModelForm):
         fields = ['gender', 'experience', 'intensity']
         widgets = {
             'gender': forms.Select(attrs={'class': 'custom-select'}),
-            'exprerience': forms.Select(attrs={'class': 'custom-select'}),
+            'experience': forms.Select(attrs={'class': 'custom-select'}),
             'intensity': forms.Select(attrs={'class': 'custom-select'}),
         }
         labels = {

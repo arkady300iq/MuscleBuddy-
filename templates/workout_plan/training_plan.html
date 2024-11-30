@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="login-page">
+    <div class="login-container">
+        <h1>{{ training_plan.name }}</h1>
+        {% for day in training_days %}
+            <a href="{% url 'training_day_detail' day.id %}">{{ day.get_day_display }}</a>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}
