@@ -6,8 +6,12 @@ from workout.forms import PreferencesForm
 
 @login_required
 def preferences_view(request):
-    if hasattr(request.user, 'preferences') and request.user.preferences.plan:
-        return redirect('training_plan', plan_id=request.user.preferences.plan.id)
+    preferences = getattr(request.user, 'preferences', None)
+    if preferences and preferences.plan:
+        if request.GET.get('return_to_preferences'):
+            pass 
+        else:
+            return redirect('training_plan', plan_id=preferences.plan.id)
 
     if request.method == 'POST':
         form = PreferencesForm(request.POST)
@@ -17,15 +21,28 @@ def preferences_view(request):
             preferences.experience = form.cleaned_data['experience']
             preferences.intensity = form.cleaned_data['intensity']
 
-            if not preferences.plan:
-                preferences.plan = TrainingPlan.objects.first()  
+            training_plan = TrainingPlan.objects.filter(
+                gender=preferences.gender,
+                experience=preferences.experience,
+                intensity=preferences.intensity).first()
 
+            preferences.plan = training_plan 
             preferences.save()
-            return redirect('training_plan', plan_id=preferences.plan.id)
+
+            if training_plan:
+                return redirect('training_plan', plan_id=training_plan.id)
+            else:
+                return render(request, 'workout_plan/no_plan.html')
     else:
         form = PreferencesForm()
 
+        
+
     return render(request, 'workouts/preferences.html', {'form': form})
+
+
+
+
 
 
 

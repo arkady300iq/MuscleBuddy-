@@ -2,11 +2,18 @@
 
 {% block content %}
 <body class="login-page">
-    <div class="login-container">
-        <h1>{{ training_plan.name }}</h1>
+    <div class="training-container">
+        <h1 class="training-title">{{ training_plan.name }}</h1>
+        <p class="training-description"> {{ training_plan.description }}</p>
+        <div class= "days-container">
         {% for day in training_days %}
-            <a href="{% url 'training_day_detail' day.id %}">{{ day.get_day_display }}</a>
+        <form action="{% url 'training_day_detail' day.id %}" method="get" style="margin: 0;">
+        <button class="day-button" type="submit">{{ day.get_day_display }}</button></form>
+          
         {% endfor %}
+        <a href="{% url 'preferences' %}?return_to_preferences=true">
+            <button class="return-button">Return to Preferences</button>
+        </a>
     </div>
 </body>
 {% endblock %}

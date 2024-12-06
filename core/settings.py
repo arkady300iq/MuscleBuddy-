@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'workout',
     'meal_calculate',
     'workout_plan',
+    'exercises',
 ]
 
 MIDDLEWARE = [

@@ -1,12 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <body class="login-page">
-    <div class="login-container">
-    <h1>{{ training_day.day }}</h1>
-    <p> {{ training_day.description }}</p>
-    <p>{{ training_day.exercises }}</p>
+    <div class="training-day-container">
+        <h1>{{ training_day.get_day_display }}</h1>
+        <p>{{ training_day.description }}</p>
+        
+        {% if training_day.exercises.exists %}
+        <h2>Exercises</h2>
+        <div class="training-day-exercises">
+            {% for exercise in training_day.exercises.all %}
+            <div class="training-day-exercise">
+                <h3>{{ exercise.name }}</h3>
+                <p>{{ exercise.description }}</p>
+                {% if exercise.photo %}
+                <img src="{{ exercise.photo.url }}" alt="{{ exercise.name }}">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No exercises assigned for this day.</p>
+        {% endif %}
     </div>
 </body>
 {% endblock %}
-
