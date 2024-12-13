@@ -960,20 +960,18 @@ footer .copyright-text {
 
 
 .training-day-container {
-  width: 90%; 
-  padding: 20px;
+  width: 100%; 
+  padding: 53px;
   text-align: center;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-x: auto; 
+  flex-wrap: wrap; 
+  gap: 20px; 
 }
 
 
 .training-day-exercises {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
   gap: 30px; 
   margin-top: 20px;
   overflow-x: auto; 
@@ -1043,4 +1041,85 @@ footer .copyright-text {
 }
 .modal video {
   width: 100%;
+}
+
+.scroll-container {
+  width: 100%;
+  height: 950px; 
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  border: 1px solid #ccc; 
+  padding: 5px;
+}
+
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.materials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px;
+}
+
+
+.material-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.material-item h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+
+
+.material-item p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.material-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+
+.material-item a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.material-item a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .materials-list {
+    grid-template-columns: 1fr; 
+  }
 }

@@ -26,7 +26,8 @@ urlpatterns = [
     path('', include("user_profile.urls")),
     path('', include("workout.urls")),
     path('', include("meal_calculate.urls")),
-    path('', include("workout_plan.urls"))
+    path('', include("workout_plan.urls")),
+    path('', include("useful_materials.url"))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

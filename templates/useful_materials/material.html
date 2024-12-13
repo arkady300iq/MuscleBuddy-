@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="login-page">
+    <div class="scroll-container">
+        <div class="training-day-container">
+        <h1>Useful materials</h1> 
+    <div class="training-day-exercises">
+    {% for material in materials %}
+        <div class="training-day-exercise">
+        <h2>{{ material.title }}</h2>
+        <p>{{ material.description }}</p>
+        <p>{{ material.created_at }}</p>
+
+        {% if material.image %}
+          <img src="{{ material.image.url }}" alt="{{ material.title }}">
+        {% endif %}
+
+        {% if material.video %}
+          <video width="100%" controls>
+            <source src="{{ material.video.url }}" type="video/mp4">
+          </video>
+        {% endif %}
+
+        {% if material.url %}
+          <a href="{{ material.url }}" target="_blank">Materials</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</body>
+
+{% endblock %}
