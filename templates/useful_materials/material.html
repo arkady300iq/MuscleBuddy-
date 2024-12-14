@@ -22,8 +22,8 @@
           </video>
         {% endif %}
 
-        {% if material.url %}
-          <a href="{{ material.url }}" target="_blank">Materials</a>
+        {% if material.app_link %}
+          <a href="{{ material.app_link }}" target="_blank">{{ material.app_link_name }}</a>
         {% endif %}
       </div>
     {% endfor %}

@@ -337,83 +337,43 @@ a:hover, a:active, a:focus {
 }
 
 
-/*  navbar for login and register */
+/* Navbar for login and register */
 body.login-page .custom-navbar,
 body.register-page .custom-navbar {
-  margin-bottom: 0;
   background-color: #4dc47d; 
-  padding: 20px 0;
-  position: fixed; 
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 body.login-page .custom-navbar .navbar-brand,
 body.register-page .custom-navbar .navbar-brand {
   color: #f9f9f9;
-  font-weight: normal;
-  font-size: 25px;
 }
 
-body.login-page .custom-navbar .nav li a,
-body.register-page .custom-navbar .nav li a {
-  font-size: 14px;
-  font-weight: normal;
-  color: #f9f9f9;
-  letter-spacing: 0.5px;
-  transition: all ease-in-out 0.4s;
-  padding: 0;
-  margin: 15px 20px;
+body.login-page .custom-navbar .navbar-nav > li > a,
+body.register-page .custom-navbar .navbar-nav > li > a {
+  color: #f9f9f9; 
   text-transform: uppercase;
+  transition: color ease-in-out 0.3s;
 }
 
 body.login-page .custom-navbar .navbar-nav > li > a:hover,
-body.register-page .custom-navbar .navbar-nav > li > a:hover,
-body.login-page .custom-navbar .navbar-nav > li > a:focus,
-body.register-page .custom-navbar .navbar-nav > li > a:focus {
-  background-color: transparent;
-  color: #ffffff;
-}
-
-body.login-page .custom-navbar .navbar-nav li a:after,
-body.register-page .custom-navbar .navbar-nav li a:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 0px;
-  height: 2px;
-  margin: auto;
-  background: transparent;
-  transition: width .3s ease, background-color .3s ease;
-}
-
-body.login-page .custom-navbar .navbar-nav li a:hover:after,
-body.register-page .custom-navbar .navbar-nav li a:hover:after,
-body.login-page .navbar-nav li.active > a:after,
-body.register-page .navbar-nav li.active > a:after {
-  background: #ffffff;
-  color: #ffffff;
-  width: 100%;
-}
-
-body.login-page .custom-navbar .navbar-nav li.active > a,
-body.register-page .custom-navbar .navbar-nav li.active > a {
-  background-color: transparent;
-  color: #ffffff;
+body.register-page .custom-navbar .navbar-nav > li > a:hover {
+  color: #ffffff; 
 }
 
 body.login-page,
 body.register-page {
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; 
   margin: 0;
-  padding-top: 80px;
-  height: 100vh; 
+  padding-top: 80px; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
 }
 
 body.login-page .login-container,
@@ -426,24 +386,14 @@ body.register-page .register-container {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-body.login-page .form-group,
-body.register-page .form-group {
-  margin-bottom: 20px;
-}
-
 body.login-page .form-control,
 body.register-page .form-control {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 4px;
   border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 body.login-page button,
 body.register-page button {
-  width: 100%;
-  padding: 10px;
   background-color: #4dc47d;
   color: white;
   border: none;
