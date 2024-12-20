@@ -2,15 +2,14 @@
 
 {% block content %}
 <body class="login-page">
-    <div class="scroll-container">
-        <div class="training-day-container">
+    <div class="useful-training-container">
         <h1>Useful materials</h1> 
     <div class="training-day-exercises">
     {% for material in materials %}
         <div class="training-day-exercise">
         <h2>{{ material.title }}</h2>
-        <p>{{ material.description }}</p>
-        <p>{{ material.created_at }}</p>
+        <h3>{{ material.description }}</h3>
+        <h4>{{ material.created_at }}</h4>
 
         {% if material.image %}
           <img src="{{ material.image.url }}" alt="{{ material.title }}">
@@ -27,7 +26,9 @@
         {% endif %}
       </div>
     {% endfor %}
-  </div>
+    </div>
+        </div>
+    </div>
 </body>
 
 {% endblock %}

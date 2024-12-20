@@ -371,7 +371,6 @@ body.register-page {
   margin: 0;
   padding-top: 80px; 
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -796,6 +795,7 @@ footer .copyright-text {
   height: 100vh;
 }
 
+
 .profile-card {
   width: 31rem;
   text-align: center;
@@ -847,75 +847,153 @@ footer .copyright-text {
   text-align: center;
 }
 
-.training-container {
-  text-align: center; 
-  max-width: 500px;
-  width: 100%; 
+
+
+ .training-container {
+  display: flex;
+  flex-direction: column; /* Сделаем вертикальное расположение */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f8f9fa; /* Светлый фон, более нейтральный */
   padding: 20px;
-  background: #ffffff; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  border-radius: 10px; 
+  box-sizing: border-box; /* Включаем паддинги в расчёт ширины */
+}
+.useful-training-container {
+  display: flex;
+  flex-direction: column; /* Вертикальное выравнивание */
+  justify-content: flex-start; /* Контент будет сверху */
+  min-height: 100vh; /* Минимальная высота — 100% экрана */
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 50px; /* Добавим отступ снизу, чтобы не перекрывать футер */
 }
 
+
+.useful-training-container h1 {
+  margin: 0; /* Убираем возможные отступы для заголовка */
+  text-align: center; /* Центрируем текст */
+  padding: 30px;
+}
+
+.useful-training-container h3 {
+  margin: 0; /* Убираем возможные отступы для заголовка */
+  text-align: center; /* Центрируем текст */
+  padding: 30px;
+}
+
+
+.training-day-exercise video {
+  max-width: 70%; /* Видео растягивается по ширине контейнера */
+  height: auto; /* Поддерживаем пропорции видео */
+  border-radius: 8px; /* Скругляем углы видео */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для видео */
+  margin-top: 15px; /* Отступ сверху */
+  margin-bottom: 20px; /* Отступ снизу */
+  display: block; /* Обычное отображение для видео */
+  transition: transform 0.3s ease; /* Плавное увеличение при наведении */
+}
+
+
+.training-temka {
+  background-color: #ffffff; /* Белый фон контейнера */
+  border: 2px solid #e0e0e0; /* Светлая рамка */
+  border-radius: 20px; /* Скругленные углы */
+  padding: 20px;
+  width: 100%;
+  max-width: 500px; /* Ограничиваем максимальную ширину */
+  box-sizing: border-box; /* Чтобы паддинги не влияли на ширину */
+  overflow: hidden; /* Чтобы элементы внутри не вылезали */
+  display: flex;
+  flex-direction: column; /* Чтобы элементы шли по одному столбцу */
+  align-items: center;
+}
+
+/* Заголовок тренировки */
 .training-title {
-  font-size: 24px; 
-  margin-bottom: 10px; 
+  font-size: 28px; /* Увеличим размер шрифта для заголовка */
+  font-weight: bold;
+  margin-bottom: 15px; 
   color: #343a40;
+  text-align: center; /* Центрируем заголовок */
 }
 
+/* Описание тренировки */
 .training-description {
-  font-size: 16px; 
+  font-size: 18px; 
   margin-bottom: 20px; 
   color: #6c757d; 
+  text-align: center; /* Центрируем описание */
+  line-height: 1.6; /* Увеличиваем межстрочный интервал для удобочитаемости */
 }
 
+/* Контейнер для дней тренировки */
 .training-days {
-  margin-bottom: 20px; 
+  margin-bottom: 30px; /* Добавляем отступ снизу */
+  text-align: center; /* Выравнивание текста по центру */
 }
 
+/* Кнопка дня тренировки */
 .day-button {
-  display: block;/
-  width: 100%; 
-  max-width: 300px;
-  margin: 10px auto; 
-  padding: 10px 15px;
-  font-size: 16px;
+  display: block;
+  width: 300px;
+  margin: 10px auto; /* Центрируем кнопки */
+  padding: 12px 20px; /* Немного увеличим отступы */
+  font-size: 18px; /* Увеличим шрифт для удобства */
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Добавляем плавный эффект */
 }
+
+
+/* Кнопка дня тренировки */
+.calculate-button {
+  display: block;
+  width: 185px;
+  height: 45px;
+  margin: 10px auto; /* Центрируем кнопки */
+  padding: 12px 20px; /* Немного увеличим отступы */
+  font-size: 15px; /* Увеличим шрифт для удобства */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Добавляем плавный эффект */
+}
+
+.calculate-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1); 
+}
+
 
 .day-button:hover {
   background-color: #0056b3;
+  transform: scale(1.1); /* Легкий эффект увеличения при наведении */
 }
 
 .return-button {
   display: inline-block;
+  width: 200px;
+  height: 50px;
   padding: 10px 20px;
   font-size: 16px;
   color: #ffffff;
-  background-color: #28a745;
+  background-color: #6c757d !important; /* Серый цвет */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;;
+  margin-top: 20px;
+  align-self: center; 
 }
 
 .return-button:hover {
-  background-color: #218838;
-}
-
-
-.training-day-container {
-  width: 100%; 
-  padding: 53px;
-  text-align: center;
-  overflow-x: auto; 
-  flex-wrap: wrap; 
-  gap: 20px; 
+  background-color: #5a6268 !important; /* Тёмный серый при ховере */
+  transform: scale(1.1); /* Легкий эффект увеличения при наведении */
 }
 
 
@@ -953,42 +1031,50 @@ footer .copyright-text {
   margin-bottom: 20px;
 }
 
-.training-day-exercise img {
+.training-day-exercise-detail img {
   max-width: 100%;
   max-height: 300px;
   border-radius: 6px;
   border: 1px solid #ddd;
   display: block;
   margin: 15px auto;
+  transition: transform 0.3s ease; /* Плавный переход */
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+/* При наведении увеличиваем изображение */
+.training-day-exercise-detail img:hover {
+  transform: scale(1.1); /* Увеличиваем изображение на 10% */
 }
+
 .modal-content {
   position: relative;
   margin: 10% auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
-  width: 100%;
-  max-width: 1200px;
+  width: 100%; /* Уменьшаем ширину окна, чтобы оно не было слишком широким */
+  max-width: 900px; /* Максимальная ширина окна */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.modal .close {
+
+.modal-content video {
+  max-width: 100%; /* Ограничиваем видео, чтобы оно не выходило за пределы модального окна */
+  height: auto;
+}
+
+.modal-content .close {
   position: absolute;
-  top: 1px;
-  right: 6px;
-  font-size: 24px;
-  color: #040404;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #333;
+  background: none;
+  border: none;
   cursor: pointer;
 }
+
 .modal video {
   width: 100%;
 }
@@ -1073,3 +1159,5 @@ footer .copyright-text {
     grid-template-columns: 1fr; 
   }
 }
+
+

@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 <body class="login-page">
     <div class="training-container">
-        <h1 class="training-title">{{ training_plan.name }}</h1>
-        <p class="training-description"> {{ training_plan.description }}</p>
-        <div class= "days-container">
-        {% for day in training_days %}
-        <form action="{% url 'training_day_detail' day.id %}" method="get" style="margin: 0;">
-        <button class="day-button" type="submit">{{ day.get_day_display }}</button></form>
-          
-        {% endfor %}
-        <a href="{% url 'preferences' %}?return_to_preferences=true">
+    <div class="training-temka">
+        <div class="card training-card">
+            <div class="training-info">
+                <h1 class="training-title">{{ training_plan.name }}</h1>
+                <p class="training-description">{{ training_plan.description }}</p>
+            </div>
+        </div>
+        <div class="days-container">
+            {% for day in training_days %}
+            <form action="{% url 'training_day_detail' day.id %}" method="get" style="margin: 0;">
+                <button class="day-button" type="submit">{{ day.get_day_display }}</button>
+            </form>
+            {% endfor %}
+        </div>
+        <a href="{% url 'preferences' %}?return_to_preferences=true" class="return-link">
             <button class="return-button">Return to Preferences</button>
         </a>
+    </div>
     </div>
 </body>
 {% endblock %}

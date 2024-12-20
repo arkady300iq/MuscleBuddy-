@@ -29,4 +29,4 @@ class TrainingDay(models.Model):
     exercises = models.ManyToManyField(Exercise, related_name="training_days")
 
     def __str__(self):
-        return f"{self.training_plan.name} - {self.day}"
+        return f"{self.training_plan.name} - {self.training_plan.gender} - {self.training_plan.experience} - {self.training_plan.intensity}- {self.day}"

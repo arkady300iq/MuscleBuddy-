@@ -3,20 +3,20 @@
 
 {% block content %}
 <body class="login-page">
-    <div class="container mt-5 profile-container">
-        <div class="card profile-card">
-            <div class="profile-avatar">
-                {% if user.profile_picture %}
-                    <img src="{{ user.profile_picture.url }}" class="avatar" alt="{{ user.username }}">
-                {% else %}
-                    <img src="{% static 'images/default_avatar.jpg' %}" class="avatar" alt="Default Avatar">
-                {% endif %}
-            </div>
-            <div class="profile-info">
-                <h5 class="profile-username">{{ user.username }}</h5>
-                <p class="profile-details">{{ user.details }}</p>
-            </div>
-        </div>
+  <div class="training-container">
+    <div class="card profile-card">
+      <div class="profile-avatar">
+        {% if user.profile_picture %}
+          <img src="{{ user.profile_picture.url }}" class="avatar" alt="{{ user.username }}">
+        {% else %}
+          <img src="{% static 'images/default_avatar.jpg' %}" class="avatar" alt="Default Avatar">
+        {% endif %}
+      </div>
+      <div class="profile-info">
+        <h5 class="profile-username">{{ user.username }}</h5>
+        <p class="profile-details">{{ user.details }}</p>
+      </div>
     </div>
-</body>
+  </div>
+  
 {% endblock %}

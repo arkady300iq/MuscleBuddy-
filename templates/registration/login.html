@@ -2,13 +2,15 @@
 
 {% block content %}
 <body class="login-page">
-    <div class="login-container">
+    <div class="training-container">
+    <div class="training-temka">
         <h2>Login</h2>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Login</button>
         </form>
+    </div>
     </div>
 </body>
 {% endblock %}

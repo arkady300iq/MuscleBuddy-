@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <body class="login-page">
-    <div class="login-container">
+    <div class="training-container">
+    <div class="training-temka">
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
 </form>
     </div>
+    </div>
+
 </body>
 {% endblock %}
