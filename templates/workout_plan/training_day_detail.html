@@ -13,6 +13,9 @@
             <div class="training-day-exercise">
                 <h2>{{ exercise.name }}</h2>
                 <h4>{{ exercise.description }}</h4>
+            {% if exercise.description_set %}
+                <h3>{{ exercise.description_set }}</h3>
+            {% endif %}
                 
                 {% if exercise.photo %}
                 <div class="training-day-exercise-detail">
