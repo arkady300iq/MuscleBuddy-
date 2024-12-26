@@ -92,7 +92,7 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] = dj_database_url.parse("postgresql://prettyprinted_django_render_090b_user:a5DBJeTpH7p6WHHJ45T1L17WW3WNNCr3@dpg-ctmr1n3tq21c73fbgb7g-a.frankfurt-postgres.render.com/prettyprinted_django_render_090b")
+DATABASES['default'] = dj_database_url.parse("postgresql://prettyprinted_django_render_090b_user:a5DBJeTpH7p6WHHJ45T1L17WW3WNNCr3@dpg-ctmr1n3tq21c73fbgb7g-a.frankfurt-postgres.render.com/prettyprinted_django_render_090b")
 #postgresql://prettyprinted_django_render_090b_user:a5DBJeTpH7p6WHHJ45T1L17WW3WNNCr3@dpg-ctmr1n3tq21c73fbgb7g-a.frankfurt-postgres.render.com/prettyprinted_django_render_090b
 
 # Password validation
