@@ -1,34 +1,143 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<head>
+  <style>
+    
+    .image-thumbnail {
+        width: 90%;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .image-thumbnail:hover {
+        transform: scale(1.05);
+    }
+
+    .button-link {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #0e8030;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1em;
+        margin-top: 10px;
+    }
+
+    .button-link:hover {
+        background-color: #09c34a;
+        text-decoration: none;
+    }
+
+
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    justify-content: center;
+    align-items: center;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 800px;
+    }
+
+    .close-btn {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        transition: color 0.3s ease;
+    }
+
+   
+  </style>
+</head>
 <body class="login-page">
     <div class="useful-training-container">
-        <h1>Useful materials</h1> 
-    <div class="training-day-exercises">
-    {% for material in materials %}
-        <div class="training-day-exercise">
-        <h2>{{ material.title }}</h2>
-        <h3>{{ material.description }}</h3>
-        <h4>{{ material.created_at }}</h4>
+        <h1>Useful materials</h1>
+        <div class="training-day-exercises">
+            {% for material in materials %}
+                <div class="training-day-exercise">
+                    <h2>{{ material.title }}</h2>
+                    <h3>{{ material.description }}</h3>
+                    <h4>{{ material.created_at }}</h4>
 
-        {% if material.image %}
-          <img src="{{ material.image.url }}" alt="{{ material.title }}">
-        {% endif %}
+                    {% if material.image %}
+                        <img src="{{ material.image.url }}" alt="{{ material.title }}" class="image-thumbnail" data-video-id="video-modal-{{ forloop.counter }}">
+                    {% endif %}
 
-        {% if material.video %}
-          <video width="100%" controls>
-            <source src="{{ material.video.url }}" type="video/mp4">
-          </video>
-        {% endif %}
+                    {% if material.video %}
+                        <div class="modal" id="video-modal-{{ forloop.counter }}">
+                            <div class="modal-content">
+                                <span class="close-btn" onclick="closeModal({{ forloop.counter }})">&times;</span>
+                                <video controls>
+                                    <source src="{{ material.video.url }}" type="video/mp4">
+                                    Your browser does not support video.
+                                </video>
+                            </div>
+                        </div>
+                    {% endif %}
 
-        {% if material.app_link %}
-          <a href="{{ material.app_link }}" target="_blank">{{ material.app_link_name }}</a>
-        {% endif %}
-      </div>
-    {% endfor %}
-    </div>
+                    {% if material.app_link %}
+                        <a href="{{ material.app_link }}" target="_blank" class="button-link">{{ material.app_link_name }}</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
     </div>
-</body>
 
+    <script>
+        document.querySelectorAll('.image-thumbnail').forEach(function(image) {
+            image.addEventListener('click', function() {
+                const modalId = image.getAttribute('data-video-id');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'block';
+                }
+            });
+        });
+
+        function closeModal(index) {
+            const modal = document.getElementById('video-modal-' + index);
+            if (modal) {
+                modal.style.display = 'none';
+                const video = modal.querySelector('video');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            }
+        }
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                const video = event.target.querySelector('video');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            }
+        });
+    </script>
+</body>
 {% endblock %}
